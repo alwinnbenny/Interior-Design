@@ -2,7 +2,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import Logo from "@/components/layout/Logo";
 
 const navigation = [
@@ -23,29 +23,58 @@ export default function Navbar() {
     }
   }, []);
 
-  useGSAP(
+   useGSAP(
     () => {
-      const tl = gsap.timeline();
+      // Initial navbar entrance
+      const intro = gsap.timeline();
 
-      tl.from(".nav-logo", {
-        y: -15,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power3.out",
-      }).from(
-        ".nav-link",
-        {
-          y: -12,
+      intro
+        .from(".nav-logo", {
+          y: -15,
           opacity: 0,
-          stagger: 0.08,
-          duration: 0.6,
+          duration: 0.7,
           ease: "power3.out",
+        })
+        .from(
+          ".nav-link",
+          {
+            y: -12,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "-=0.4"
+        );
+
+      // Scroll direction detection
+      let isHidden = false;
+
+      ScrollTrigger.create({
+        start: 0,
+        end: "max",
+
+        onUpdate: (self) => {
+          const shouldHide =
+            self.direction === 1 && self.scroll() > 100;
+
+          if (shouldHide === isHidden) return;
+
+          isHidden = shouldHide;
+
+          gsap.to(navRef.current, {
+            yPercent: isHidden ? -110 : 0,
+            autoAlpha: isHidden ? 0 : 1,
+            duration: 0.4,
+            ease: "power3.out",
+            overwrite: true,
+          });
         },
-        "-=0.5"
-      );
+      });
     },
     { scope: navRef }
   );
+
 
   return (
     <header className="navbar" ref={navRef}>

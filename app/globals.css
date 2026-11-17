@@ -369,14 +369,16 @@ body {
 .about-detail-image {
   position: relative;
   overflow: hidden;
-  transform-origin: center center;
-  will-change: transform, opacity;
+  /* transform-origin: center center;
+  will-change: transform, opacity; */
 }
 
 .about-detail-image img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  will-change: transform;
 }
 
 .about-detail-image.portrait {
