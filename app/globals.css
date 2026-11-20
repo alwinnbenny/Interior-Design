@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: auto;
+  overflow-x: clip;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -842,5 +843,418 @@ body {
 
   .projects-more-container {
     padding-top: 36px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   SERVICES SECTION
+───────────────────────────────────────── */
+
+.services-section {
+  position: relative;
+  width: 100%;
+  padding: 110px 1.7% 100px;
+  background: #f5f5f4;
+  color: #555555;
+  overflow: hidden;
+}
+
+
+
+.services-topline {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #505050;
+  
+}
+
+.services-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2b2b2b;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+
+.services-heading {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+}
+
+.services-heading-line {
+  white-space: nowrap;
+  width: fit-content;
+  line-height: 0.78;
+}
+
+.services-serif {
+  font-family: "PP Right Gothic", sans-serif;
+  font-weight: 200;
+  font-size: 175px;
+  letter-spacing: -0.075em;
+}
+
+.services-line-one {
+  align-self: flex-end;
+  margin-right: 15%;
+}
+
+.services-line-two {
+  align-self: flex-start;
+  margin-left: 5.5%;
+  margin-top: -0.02em;
+}
+
+.services-sans {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 137px;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.075em;
+
+}
+
+.services-line-three {
+  align-self: flex-end;
+  margin-right: 20.5%;
+  margin-top: 0.2em;
+  
+}
+
+
+
+.services-list {
+  width: 100%;
+}
+
+.service-row {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 42% 1fr 40px;
+  align-items: start;
+
+  width: 100%;
+  min-height: 235px;
+
+  padding-top: 25px;
+  
+}
+.service-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 1px;
+  background: rgba(75, 75, 75, 0.7);
+}
+
+.service-row:last-child {
+  border-bottom: none;
+}
+.service-row:last-child::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 1px;
+  background: rgba(75, 75, 75, 0.7);
+}
+.service-category {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.service-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(23px, 2.65vw, 43px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+}
+
+.service-number {
+  justify-self: end;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+
+
+.services-button-wrapper {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  padding-top: 40px;
+}
+
+.services-button {
+  grid-column: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  max-width: 100%;
+  height: 46px;
+
+  border: 1px solid rgba(75, 75, 75, 0.7);
+  border-radius: 50px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  text-decoration: none;
+  color: inherit;
+
+  transition:
+    color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.services-button:hover {
+  color: #f5f5f4;
+  background: #555555;
+}
+
+/* ─────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 65px 4% 75px;
+  }
+
+  .services-heading {
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+
+  .services-serif {
+    font-size: clamp(50px, 12vw, 90px);
+  }
+
+  .services-line-one {
+    margin-right: 3%;
+  }
+
+  .services-line-two {
+    margin-left: 0;
+  }
+
+  .services-sans {
+    font-size: clamp(35px, 8.5vw, 65px);
+  }
+
+  .services-line-three {
+    margin-right: 10%;
+  }
+
+  .service-row {
+    grid-template-columns: 1fr 30px;
+    min-height: 140px;
+    padding-top: 18px;
+  }
+
+  .service-category {
+    grid-column: 1 / -1;
+    font-size: 11px;
+    margin-bottom: 18px;
+  }
+
+  .service-title {
+    grid-column: 1;
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .service-number {
+    grid-column: 2;
+    font-size: 11px;
+  }
+
+  .services-button-wrapper {
+    display: block;
+    padding-top: 30px;
+  }
+
+  .services-button {
+    width: 230px;
+    height: 42px;
+    font-size: 13px;
+  }
+}
+
+
+/* INSTAGRAM SECTION */
+
+.instagram-section {
+  position: relative;
+  width: 100%;
+  padding: 180px 1.7% 110px;
+  overflow: hidden;
+  background: #f5f5f4;
+  color: #555555;
+}
+
+/* TOP LABEL */
+
+.instagram-topline {
+  width: 100%;
+  border-bottom: 1px solid rgba(75, 75, 75, 0.7);
+  padding-bottom: 20px;
+  margin-bottom: 17px;
+}
+
+.instagram-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.instagram-dot {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #555555;
+}
+
+/* IMAGE GALLERY */
+
+.instagram-gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.7fr 1.35fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.instagram-image {
+  position: relative;
+  height: clamp(280px, 30vw, 490px);
+  overflow: hidden;
+  background: #e8e7e4;
+}
+
+.instagram-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* TEXT OVER THE IMAGES */
+
+.instagram-text-window {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.instagram-scroll-layer {
+  width: max-content;
+  will-change: transform;
+}
+
+.instagram-marquee {
+  width: max-content;
+}
+
+.instagram-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+.instagram-marquee-track span {
+  display: block;
+  flex-shrink: 0;
+  padding-right: 0.25em;
+
+  color: rgba(255, 255, 255, 0.94);
+  font-family: "PP Right Gothic", sans-serif;
+  font-size: clamp(85px, 10vw, 185px);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .instagram-section {
+    padding: 100px 4% 70px;
+  }
+
+  .instagram-topline {
+    padding-bottom: 15px;
+    margin-bottom: 12px;
+  }
+
+  .instagram-label {
+    font-size: 11px;
+  }
+
+  .instagram-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .instagram-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .instagram-image {
+    height: 220px;
+  }
+
+  .instagram-image:last-of-type {
+    display: none;
+  }
+
+  .instagram-marquee-track span {
+    font-size: 75px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .instagram-marquee-track {
+    animation-play-state: paused;
   }
 }
